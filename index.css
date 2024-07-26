@@ -80,3 +80,8 @@ header, .post-content {
     padding: 10px;
 }
 
+.social-icon:hover,
+.social-icon:focus {
+    opacity: 50%;
+}
+

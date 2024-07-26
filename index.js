@@ -41,17 +41,22 @@ for (let i = 0; i < posts.length; i++) {
                 <p class="small">${post.location}</p>
             </div>
         </div>
-        <img src="${post.post}" class="post-img" alt="The image associated with this post.">
+        <img src="${post.post}" class="post-img" id="post-el-${i}" alt="The image associated with this post.">
         <div class="social-container">
             <div>
-                <img src="images/icon-heart.png" class="social-icon" onClick="newLike(${i})" tabindex="0" role="button" alt="The share icon">
+                <img src="images/icon-heart.png" class="social-icon" id="heart-icon-el-${i}" tabindex="0" role="button" alt="The share icon">
                 <img src="images/icon-comment.png" class="social-icon" tabindex="0" role="button" alt="The comment icon.">
                 <img src="images/icon-dm.png" class="social-icon" tabindex="0" role="button" alt="The direct message icon.">
             </div>
             <p id="likes-el-${i}" class="bold">${post.likes} likes</p>
             <p><span class="bold">${post.username}</span> ${post.comment}</p>
         </div>
-    </section>`   
+    </section>`
+}
+
+for (let i = 0; i < posts.length; i++) {
+    document.getElementById(`post-el-${i}`).addEventListener("dblclick", () => {newLike(i)})
+    document.getElementById(`heart-icon-el-${i}`).addEventListener("dblclick", () => {newLike(i)})
 }
 
 function newLike(postNum) {
